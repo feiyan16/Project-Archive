@@ -1,0 +1,2549 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-BoldOblique;\f2\fnil\fcharset0 LucidaGrande;
+\f3\fnil\fcharset0 STIXGeneral-Regular;\f4\fswiss\fcharset0 Helvetica-Oblique;}
+{\colortbl;\red255\green255\blue255;\red204\green108\blue29;\red217\green232\blue247;\red230\green230\blue250;
+\red18\green144\blue195;\red249\green250\blue244;\red102\green225\blue248;\red104\green151\blue187;\red167\green236\blue33;
+\red30\green181\blue64;\red205\green246\blue104;\red141\green218\blue248;\red23\green198\blue163;\red128\green242\blue246;
+\red160\green160\blue160;\red121\green171\blue255;\red242\green242\blue0;\red243\green236\blue121;\red150\green236\blue63;
+\red177\green102\blue218;}
+{\*\expandedcolortbl;;\csgenericrgb\c80000\c42353\c11373;\csgenericrgb\c85098\c90980\c96863;\csgenericrgb\c90196\c90196\c98039;
+\csgenericrgb\c7059\c56471\c76471;\csgenericrgb\c97647\c98039\c95686;\csgenericrgb\c40000\c88235\c97255;\csgenericrgb\c40784\c59216\c73333;\csgenericrgb\c65490\c92549\c12941;
+\csgenericrgb\c11765\c70980\c25098;\csgenericrgb\c80392\c96471\c40784;\csgenericrgb\c55294\c85490\c97255;\csgenericrgb\c9020\c77647\c63922;\csgenericrgb\c50196\c94902\c96471;
+\csgenericrgb\c62745\c62745\c62745;\csgenericrgb\c47451\c67059\c100000;\csgenericrgb\c94902\c94902\c0;\csgenericrgb\c95294\c92549\c47451;\csgenericrgb\c58824\c92549\c24706;
+\csgenericrgb\c69412\c40000\c85490;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs22 \cf2 package\cf3  Calculator\cf4 ;\cf0 \
+\
+\cf2 import\cf3  java\cf4 .\cf3 awt\cf4 .*;\cf0 \
+\cf2 import\cf3  java\cf4 .\cf3 awt\cf4 .\cf3 event\cf4 .*;\cf0 \
+\cf2 import\cf3  java\cf4 .\cf3 util\cf4 .\cf3 Stack\cf4 ;\cf0 \
+\
+\cf2 import\cf3  javax\cf4 .\cf3 swing\cf4 .*;\cf0 \
+\cf2 import\cf3  javax\cf4 .\cf3 swing\cf4 .\cf3 event\cf4 .\cf3 AncestorEvent\cf4 ;\cf0 \
+\cf2 import\cf3  javax\cf4 .\cf3 swing\cf4 .\cf3 event\cf4 .\cf3 AncestorListener\cf4 ;\cf0 \
+\
+\cf2 public\cf3  \cf2 class\cf3  \cf5 \ul \ulc5 Calculator\cf3 \ulnone  \cf2 extends\cf3  \cf5 JFrame\cf3  \cf6 \{\cf0 \
+\
+\cf3 	\cf5 String\cf3  \cf7 value\cf3  \cf4 =\cf3  \cf2 null\cf4 ,\cf3  \cf7 labelV\cf3  \cf4 =\cf3  \cf2 null\cf4 ;\cf0 \
+\cf3 	\cf2 double\cf3  \cf7 op1\cf3  \cf4 =\cf3  \cf8 0\cf4 ,\cf3  \cf7 op2\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 	\cf2 int\cf3  \cf7 check\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 	\cf2 boolean\cf3  \cf7 parenthesis\cf3  \cf4 =\cf3  \cf2 false\cf4 ,\cf3  \cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\
+\cf3 	\cf5 JButton\cf3  \cf7 b1\cf4 ,\cf3  \cf7 b2\cf4 ,\cf3  \cf7 b3\cf4 ,\cf3  \cf7 b4\cf4 ,\cf3  \cf7 b5\cf4 ,\cf3  \cf7 b6\cf4 ,\cf3  \cf7 b7\cf4 ,\cf3  \cf7 b8\cf4 ,\cf3  \cf7 b9\cf4 ,\cf3  \cf7 b0\cf4 ,\cf3  \cf7 bDot\cf4 ,\cf3  \cf7 div\cf4 ,\cf3  \cf7 mul\cf4 ,\cf3  \cf7 sub\cf4 ,\cf3  \cf7 add\cf4 ,\cf3  \cf7 equals\cf4 ,\cf3  \cf7 plusMinus\cf4 ,\cf3  \cf7 openP\cf4 ,\cf3  \cf7 closeP\cf4 ,\cf3  \cf7 arrow\cf4 ,\cf0 \
+\cf3 			\cf7 mod\cf4 ,\cf3  \cf7 CE\cf4 ,\cf3  \cf7 C\cf4 ,\cf3  \cf7 backspace\cf4 ,\cf3  \cf7 bA\cf4 ,\cf3  \cf7 bB\cf4 ,\cf3  \cf7 bC\cf4 ,\cf3  \cf7 bD\cf4 ,\cf3  \cf7 bE\cf4 ,\cf3  \cf7 bF\cf4 ,\cf3  \cf7 hex\cf4 ,\cf3  \cf7 dec\cf4 ,\cf3  \cf7 oct\cf4 ,\cf3  \cf7 bin\cf4 ,\cf3  \cf7 h0\cf4 ,\cf3  \cf7 d0\cf4 ,\cf3  \cf7 o0\cf4 ,\cf3  \cf7 b0_\cf4 ;\cf0 \
+\cf3 	\cf5 JPanel\cf3  \cf7 digits\cf4 ,\cf3  \cf7 title\cf4 ,\cf3  \cf7 field\cf4 ,\cf3  \cf7 top\cf4 ,\cf3  \cf7 middle\cf4 ,\cf3  \cf7 hdob\cf4 ,\cf3  \cf7 zeroes\cf4 ,\cf3  \cf7 labelP\cf4 ;\cf0 \
+\cf3 	\cf5 JLabel\cf3  \cf7 Programmer\cf4 ,\cf3  \cf7 field0\cf4 ,\cf3  \cf7 label\cf4 ;\cf0 \
+\
+\cf3 	\cf5 GridBagConstraints\cf3  \cf7 c\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 GridBagConstraints\cf6 ()\cf4 ;\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf10 Calculator\cf6 ()\cf3  \cf6 \{\cf0 \
+\
+\cf3 		\cf7 top\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JPanel\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf7 middle\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JPanel\cf6 ()\cf4 ;\cf0 \
+\
+\cf3 		\cf7 title\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JPanel\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf7 title\cf4 .\cf11 setLayout\cf6 (\cf2 new\cf3  \cf9 FlowLayout\cf6 (\cf5 FlowLayout\cf4 .
+\f1\i\b \cf12 LEFT
+\f0\i0\b0 \cf6 ))\cf4 ;\cf0 \
+\
+\cf3 		\cf7 field\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JPanel\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf7 field\cf4 .\cf11 setLayout\cf6 (\cf2 new\cf3  \cf9 FlowLayout\cf6 (\cf5 FlowLayout\cf4 .
+\f1\i\b \cf12 RIGHT
+\f0\i0\b0 \cf6 ))\cf4 ;\cf0 \
+\
+\cf3 		\cf7 labelP\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JPanel\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf7 labelP\cf4 .\cf11 setLayout\cf6 (\cf2 new\cf3  \cf9 FlowLayout\cf6 (\cf5 FlowLayout\cf4 .
+\f1\i\b \cf12 RIGHT
+\f0\i0\b0 \cf6 ))\cf4 ;\cf0 \
+\
+\cf3 		\cf7 hdob\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JPanel\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf7 hdob\cf4 .\cf11 setLayout\cf6 (\cf2 new\cf3  \cf9 GridLayout\cf6 (\cf8 4\cf4 ,\cf3  \cf8 1\cf6 ))\cf4 ;\cf0 \
+\
+\cf3 		\cf7 zeroes\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JPanel\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf7 zeroes\cf4 .\cf11 setLayout\cf6 (\cf2 new\cf3  \cf9 GridLayout\cf6 (\cf8 4\cf4 ,\cf3  \cf8 1\cf6 ))\cf4 ;\cf0 \
+\
+\cf3 		\cf7 Programmer\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JLabel\cf6 (\cf13 "PROGRAMMER"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 Programmer\cf4 .\cf9 setFont\cf6 (\cf2 new\cf3  \cf9 Font\cf6 (\cf13 "Calibri"\cf4 ,\cf3  \cf5 Font\cf4 .
+\f1\i\b \cf12 BOLD
+\f0\i0\b0 \cf4 ,\cf3  \cf8 16\cf6 ))\cf4 ;\cf0 \
+\cf3 		\cf7 title\cf4 .\cf11 add\cf6 (\cf7 Programmer\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf7 field0\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JLabel\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 field0\cf4 .\cf9 setFont\cf6 (\cf2 new\cf3  \cf9 Font\cf6 (\cf13 "Calibri"\cf4 ,\cf3  \cf5 Font\cf4 .
+\f1\i\b \cf12 BOLD
+\f0\i0\b0 \cf4 ,\cf3  \cf8 28\cf6 ))\cf4 ;\cf0 \
+\cf3 		\cf7 field\cf4 .\cf11 add\cf6 (\cf7 field0\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf7 label\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JLabel\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 label\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 labelP\cf4 .\cf11 add\cf6 (\cf7 label\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf7 hex\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "HEX"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 dec\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "DEC"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 oct\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "OCT"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bin\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "BIN"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 hex\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 dec\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 oct\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bin\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 hex\cf4 .\cf9 setBorderPainted\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 dec\cf4 .\cf9 setBorderPainted\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 oct\cf4 .\cf9 setBorderPainted\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bin\cf4 .\cf9 setBorderPainted\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 hdob\cf4 .\cf11 add\cf6 (\cf7 hex\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 hdob\cf4 .\cf11 add\cf6 (\cf7 dec\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 hdob\cf4 .\cf11 add\cf6 (\cf7 oct\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 hdob\cf4 .\cf11 add\cf6 (\cf7 bin\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf7 d0\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 h0\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 o0\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0_\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 h0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 d0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 o0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0_\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 h0\cf4 .\cf9 setBorderPainted\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 d0\cf4 .\cf9 setBorderPainted\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 o0\cf4 .\cf9 setBorderPainted\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0_\cf4 .\cf9 setBorderPainted\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 h0\cf4 .\cf9 setHorizontalAlignment\cf6 (\cf14 SwingConstants\cf4 .
+\f1\i\b \cf12 LEFT
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 d0\cf4 .\cf9 setHorizontalAlignment\cf6 (\cf14 SwingConstants\cf4 .
+\f1\i\b \cf12 LEFT
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 o0\cf4 .\cf9 setHorizontalAlignment\cf6 (\cf14 SwingConstants\cf4 .
+\f1\i\b \cf12 LEFT
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0_\cf4 .\cf9 setHorizontalAlignment\cf6 (\cf14 SwingConstants\cf4 .
+\f1\i\b \cf12 LEFT
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 zeroes\cf4 .\cf11 add\cf6 (\cf7 h0\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 zeroes\cf4 .\cf11 add\cf6 (\cf7 d0\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 zeroes\cf4 .\cf11 add\cf6 (\cf7 o0\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 zeroes\cf4 .\cf11 add\cf6 (\cf7 b0_\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf7 top\cf4 .\cf11 setLayout\cf6 (\cf2 new\cf3  \cf9 GridLayout\cf6 (\cf8 3\cf4 ,\cf3  \cf8 1\cf6 ))\cf4 ;\cf0 \
+\cf3 		\cf7 top\cf4 .\cf11 add\cf6 (\cf7 title\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 top\cf4 .\cf11 add\cf6 (\cf7 labelP\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 top\cf4 .\cf11 add\cf6 (\cf7 field\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf7 middle\cf4 .\cf11 setLayout\cf6 (\cf2 new\cf3  \cf9 FlowLayout\cf6 (\cf5 FlowLayout\cf4 .
+\f1\i\b \cf12 LEFT
+\f0\i0\b0 \cf6 ))\cf4 ;\cf0 \
+\cf3 		\cf7 middle\cf4 .\cf11 add\cf6 (\cf7 hdob\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 middle\cf4 .\cf11 add\cf6 (\cf7 zeroes\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf11 setLayout\cf6 (\cf2 new\cf3  \cf9 GridLayout\cf6 (\cf8 3\cf4 ,\cf3  \cf8 1\cf6 ))\cf4 ;\cf0 \
+\cf3 		\cf11 add\cf6 (\cf7 top\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf11 add\cf6 (\cf7 middle\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf7 digits\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JPanel\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 setLayout\cf6 (\cf2 new\cf3  \cf9 GridBagLayout\cf6 ())\cf4 ;\cf0 \
+\
+\cf3 		\cf7 arrow\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "
+\f2 \uc0\u8593 
+\f0 "\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 4\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 arrow\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 mod\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "Mod"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 1\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 4\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 mod\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 CE\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "CE"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 2\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 4\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 CE\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 C\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "C"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 3\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 4\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 C\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 backspace\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "
+\f3 \uc0\u10232 
+\f0 "\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 4\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 4\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 backspace\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 div\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "\'f7"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 5\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 4\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 div\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf7 bA\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "A"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 5\cf4 ;\cf0 \
+\cf3 		\cf7 bA\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 bA\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bB\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "B"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 1\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 5\cf4 ;\cf0 \
+\cf3 		\cf7 bB\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 bB\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b7\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "7"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 2\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 5\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 b7\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b8\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "8"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 3\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 5\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 b8\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b9\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "9"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 4\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 5\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 b9\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 mul\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "x"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 5\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 5\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 mul\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf7 bC\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "C"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 6\cf4 ;\cf0 \
+\cf3 		\cf7 bC\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 bC\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bD\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "D"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 1\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 6\cf4 ;\cf0 \
+\cf3 		\cf7 bD\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 bD\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b4\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "4"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 2\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 6\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 b4\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b5\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "5"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 3\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 6\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 b5\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b6\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "6"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 4\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 6\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 b6\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 sub\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "-"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 5\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 6\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 sub\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf7 bE\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "E"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 7\cf4 ;\cf0 \
+\cf3 		\cf7 bE\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 bE\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bF\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "F"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 1\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 7\cf4 ;\cf0 \
+\cf3 		\cf7 bF\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 bF\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b1\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "1"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 2\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 7\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 b1\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b2\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "2"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 3\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 7\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 b2\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b3\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "3"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 4\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 7\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 b3\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 add\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "+"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 5\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 7\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 add\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf7 openP\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "("\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 8\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 openP\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 closeP\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 ")"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 1\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 8\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 closeP\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 plusMinus\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "\'b1"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 2\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 8\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 plusMinus\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 3\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 8\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 b0\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bDot\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "."\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 4\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 8\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 bDot\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 equals\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 JButton\cf6 (\cf13 "="\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridx\cf3  \cf4 =\cf3  \cf8 5\cf4 ;\cf0 \
+\cf3 		\cf7 c\cf4 .\cf7 gridy\cf3  \cf4 =\cf3  \cf8 8\cf4 ;\cf0 \
+\cf3 		\cf7 digits\cf4 .\cf11 add\cf6 (\cf7 equals\cf4 ,\cf3  \cf7 c\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf11 add\cf6 (\cf7 digits\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf7 bDot\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonDotLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 b0\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 Button0Logic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 b1\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 Button1Logic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 b2\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 Button2Logic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 b3\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 Button3Logic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 b4\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 Button4Logic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 b5\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 Button5Logic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 b6\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 Button6Logic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 b7\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 Button7Logic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 b8\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 Button8Logic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 b9\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 Button9Logic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 bA\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonALogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 bB\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonBLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 bC\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonCLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 bD\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonDLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 bE\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonELogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 bF\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonFLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 add\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonAddLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 sub\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonSubLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 mul\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonMulLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 div\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonDivLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 mod\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonModLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 equals\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonEqualsLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 C\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonC_Logic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 CE\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonCELogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 backspace\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonBackspaceLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 plusMinus\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonPMLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 hex\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonHexLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 dec\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonDecLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 oct\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonOctLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 bin\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonBinLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 label\cf4 .\cf9 addAncestorListener\cf6 (\cf2 new\cf3  \cf9 LabelLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 openP\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonOpenPLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf7 closeP\cf4 .\cf9 addActionListener\cf6 (\cf2 new\cf3  \cf9 ButtonClosePLogic\cf6 ())\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 LabelLogic\cf3  \cf2 implements\cf3  \cf14 AncestorListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 ancestorAdded\cf6 (\cf5 AncestorEvent\cf3  \cf16 event\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 ancestorRemoved\cf6 (\cf5 AncestorEvent\cf3  \cf16 event\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf9 nullify\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf4 ;\cf0 \
+\
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 ancestorMoved\cf6 (\cf5 AncestorEvent\cf3  \cf16 event\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf6 \}\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonDotLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0."\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "0."\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0."\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 labelV\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( 0."\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0."\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf13 "."\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 "."\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonOpenPLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 parenthesis\cf3  \cf4 =\cf3  \cf2 true\cf4 ;\cf0 \
+\cf3 			\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 labelV\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( "\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 labelV\cf4 .\cf9 contains\cf6 (\cf13 ")"\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 				\cf2 int\cf3  \cf17 index\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 				\cf2 for\cf3  \cf6 (\cf2 int\cf3  \cf17 i\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf3  \cf18 i\cf3  \cf4 <\cf3  \cf7 labelV\cf4 .\cf9 length\cf6 ()\cf4 ;\cf3  \cf18 i\cf4 ++\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf7 labelV\cf4 .\cf9 charAt\cf6 (\cf18 i\cf6 )\cf3  \cf4 ==\cf3  \cf13 ')'\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 						\cf18 index\cf3  \cf4 =\cf3  \cf18 i\cf3  \cf4 +\cf3  \cf8 1\cf4 ;\cf0 \
+\cf3 						\cf2 break\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 				\cf5 String\cf3  \cf17 s\cf3  \cf4 =\cf3  \cf7 labelV\cf4 .\cf9 substring\cf6 (\cf18 index\cf3  \cf4 +\cf3  \cf8 1\cf4 ,\cf3  \cf7 labelV\cf4 .\cf9 length\cf6 ())\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf4 .\cf9 substring\cf6 (\cf8 0\cf4 ,\cf3  \cf18 index\cf6 )\cf3  \cf4 +\cf3  \cf9 conversion\cf6 (\cf18 s\cf6 )\cf3  \cf4 +\cf3  \cf13 " ( "\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 labelV\cf3  \cf4 !=\cf3  \cf13 "0"\cf3  \cf4 &&\cf3  \cf4 !\cf7 labelV\cf4 .\cf9 contains\cf6 (\cf13 ")"\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf9 conversion\cf6 (\cf7 labelV\cf6 )\cf3  \cf4 +\cf3  \cf13 " ( "\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 "( "\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonClosePLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 parenthesis\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 labelV\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 ")"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 ")"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 labelV\cf4 .\cf9 contains\cf6 (\cf13 "("\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 				\cf2 int\cf3  \cf17 index\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 				\cf2 for\cf3  \cf6 (\cf2 int\cf3  \cf17 i\cf3  \cf4 =\cf3  \cf7 labelV\cf4 .\cf9 length\cf6 ()\cf3  \cf4 -\cf3  \cf8 2\cf4 ;\cf3  \cf18 i\cf3  \cf4 >=\cf3  \cf8 0\cf4 ;\cf3  \cf18 i\cf4 ++\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf7 labelV\cf4 .\cf9 charAt\cf6 (\cf18 i\cf6 )\cf3  \cf4 ==\cf3  \cf13 ' '\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 						\cf18 index\cf3  \cf4 =\cf3  \cf18 i\cf3  \cf4 +\cf3  \cf8 1\cf4 ;\cf0 \
+\cf3 						\cf2 break\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 				\cf5 String\cf3  \cf17 s\cf3  \cf4 =\cf3  \cf7 labelV\cf4 .\cf9 substring\cf6 (\cf18 index\cf4 ,\cf3  \cf7 labelV\cf4 .\cf9 length\cf6 ())\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf4 .\cf9 substring\cf6 (\cf8 0\cf4 ,\cf3  \cf18 index\cf6 )\cf3  \cf4 +\cf3  \cf9 conversion\cf6 (\cf18 s\cf6 )\cf3  \cf4 +\cf3  \cf13 " ) "\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 " )"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 Button0Logic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( 0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf8 0\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf8 0\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf3  \cf4 <=\cf3  \cf5 Long\cf4 .
+\f1\i\b \cf12 MAX_VALUE
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 dectoHex\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 dectoOct\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 dectoBin\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 octtoHex\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 octtoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 bin\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 bintoHex\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 bintoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 Button1Logic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "1"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "1"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "1"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "1"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "1"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( 1"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "1"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf8 1\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf8 1\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf3  \cf4 <=\cf3  \cf5 Long\cf4 .
+\f1\i\b \cf12 MAX_VALUE
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 dectoHex\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 dectoOct\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 dectoBin\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 octtoHex\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 octtoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 bin\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 bintoHex\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 bintoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 Button2Logic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "2"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "2"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "2"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "2"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "2"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( 2"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "2"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf8 2\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf8 2\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf3  \cf4 <=\cf3  \cf5 Long\cf4 .
+\f1\i\b \cf12 MAX_VALUE
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 dectoHex\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 dectoOct\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 dectoBin\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 octtoHex\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 octtoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 Button3Logic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "3"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "3"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "3"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "3"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "3"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( 3"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "3"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf8 3\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf8 3\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf3  \cf4 <=\cf3  \cf5 Long\cf4 .
+\f1\i\b \cf12 MAX_VALUE
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 dectoHex\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 dectoOct\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 dectoBin\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 octtoHex\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 octtoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 Button4Logic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "4"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "4"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "4"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "4"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "4"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( 4"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "4"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf8 4\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf8 4\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf3  \cf4 <=\cf3  \cf5 Long\cf4 .
+\f1\i\b \cf12 MAX_VALUE
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 dectoHex\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 dectoOct\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 dectoBin\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 octtoHex\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 octtoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 Button5Logic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "5"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "5"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "5"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "5"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "5"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( 5"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "5"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf8 5\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf8 5\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf3  \cf4 <=\cf3  \cf5 Long\cf4 .
+\f1\i\b \cf12 MAX_VALUE
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 dectoHex\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 dectoOct\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 dectoBin\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 octtoHex\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 octtoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 Button6Logic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "6"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "6"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "6"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "6"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "6"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( 6"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "6"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf8 6\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf8 6\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf3  \cf4 <=\cf3  \cf5 Long\cf4 .
+\f1\i\b \cf12 MAX_VALUE
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 dectoHex\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 dectoOct\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 dectoBin\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 octtoHex\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 octtoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 Button7Logic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "7"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "7"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "7"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "7"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "7"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( 7"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "7"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf8 7\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf8 7\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf3  \cf4 <=\cf3  \cf5 Long\cf4 .
+\f1\i\b \cf12 MAX_VALUE
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 dectoHex\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 dectoOct\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 dectoBin\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 octtoHex\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 octtoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 Button8Logic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "8"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "8"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "8"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "8"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "8"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( 8"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "8"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf8 8\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf8 8\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf3  \cf4 <=\cf3  \cf5 Long\cf4 .
+\f1\i\b \cf12 MAX_VALUE
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 dectoHex\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 dectoOct\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 dectoBin\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 Button9Logic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "9"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "9"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "9"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "9"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "9"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( 9"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "9"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf8 9\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf8 9\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf2 if\cf3  \cf6 (\cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf3  \cf4 <=\cf3  \cf5 Long\cf4 .
+\f1\i\b \cf12 MAX_VALUE
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 						\cf2 if\cf3  \cf6 (\cf4 !\cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "."\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 dectoHex\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 dectoOct\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 dectoBin\cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())))\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 							\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 							\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 						\cf6 \}\cf0 \
+\cf3 						\cf7 d0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 						\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 					\cf6 \}\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonALogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "A"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "A"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "10"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "12"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "1010"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( A"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "A"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf13 "A"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 "A"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 					\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonBLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "B"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "B"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "11"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "13"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "1011"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( B"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "B"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf13 "B"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 "B"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 					\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonCLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "C"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "C"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "12"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "14"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "1100"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( C"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "C"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf13 "C"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 "C"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 					\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonDLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "D"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "D"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "13"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "15"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "1101"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( D"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "D"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf13 "D"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 "D"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 					\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonELogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "E"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "E"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "14"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "16"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "1110"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( E"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "E"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf13 "E"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 "E"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 					\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonFLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 ==\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "F"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "F"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "15"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "17"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "1111"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 ==\cf3  \cf13 "( "\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "( F"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "F"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 value\cf3  \cf4 !=\cf3  \cf13 "0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 value\cf3  \cf4 +=\cf3  \cf13 "F"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 "F"\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf9 boundsCheck\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf3  \cf6 \{\cf0 \
+\cf3 					\cf7 h0\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 					\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 					\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ()))\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 					\cf9 max\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonAddLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 check\cf3  \cf4 =\cf3  \cf8 1\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf7 op1\cf3  \cf4 =\cf3  \cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 d0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 ""\cf6 )\cf4 ;\cf0 \
+\
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 parenthesis\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf9 convert\cf6 (\cf7 labelV\cf6 )\cf3  \cf4 +\cf3  \cf13 " + "\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 " + "\cf6 )\cf4 ;\cf0 \
+\
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonSubLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 check\cf3  \cf4 =\cf3  \cf8 2\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf7 op1\cf3  \cf4 =\cf3  \cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 d0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 ""\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 parenthesis\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf9 convert\cf6 (\cf7 labelV\cf6 )\cf3  \cf4 +\cf3  \cf13 " - "\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 " - "\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonMulLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 check\cf3  \cf4 =\cf3  \cf8 3\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf7 op1\cf3  \cf4 =\cf3  \cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 d0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 ""\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 parenthesis\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf9 convert\cf6 (\cf7 labelV\cf6 )\cf3  \cf4 +\cf3  \cf13 " \'d7 "\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 " \'d7 "\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonDivLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 check\cf3  \cf4 =\cf3  \cf8 4\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf7 op1\cf3  \cf4 =\cf3  \cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 d0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 ""\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 parenthesis\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf9 convert\cf6 (\cf7 labelV\cf6 )\cf3  \cf4 +\cf3  \cf13 " \'f7 "\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 " \'f7 "\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonModLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 check\cf3  \cf4 =\cf3  \cf8 5\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 isEqual\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 field0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf7 value\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf7 op1\cf3  \cf4 =\cf3  \cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 d0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 ""\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 parenthesis\cf3  \cf4 ==\cf3  \cf2 true\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf9 convert\cf6 (\cf7 labelV\cf6 )\cf3  \cf4 +\cf3  \cf13 " % "\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 labelV\cf3  \cf4 +=\cf3  \cf13 " % "\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonC_Logic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 int\cf3  \cf17 a\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 length\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 int\cf3  \cf17 b\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 length\cf6 ()\cf3  \cf4 -\cf3  \cf18 a\cf4 ;\cf0 \
+\cf3 			\cf5 String\cf3  \cf17 s\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 substring\cf6 (\cf8 0\cf4 ,\cf3  \cf18 b\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 label\cf4 .\cf9 setText\cf6 (\cf18 s\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 op2\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonCELogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf9 reset\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf9 resetHex\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf9 resetDec\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf9 resetOct\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 bin\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf9 resetBin\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonBackspaceLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf5 String\cf3  \cf17 temp\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf5 String\cf3  \cf17 temp1\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf2 int\cf3  \cf17 size\cf3  \cf4 =\cf3  \cf18 temp\cf4 .\cf9 length\cf6 ()\cf4 ,\cf3  \cf17 size1\cf3  \cf4 =\cf3  \cf18 temp1\cf4 .\cf9 length\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf5 String\cf3  \cf17 newStr\cf3  \cf4 =\cf3  \cf2 null\cf4 ,\cf3  \cf17 newStr1\cf3  \cf4 =\cf3  \cf2 null\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf18 size\cf3  \cf4 !=\cf3  \cf8 0\cf3  \cf4 &&\cf3  \cf18 size1\cf3  \cf4 !=\cf3  \cf8 0\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 newStr\cf3  \cf4 =\cf3  \cf9 bSpace\cf6 (\cf18 temp\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf18 newStr\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf18 newStr1\cf3  \cf4 =\cf3  \cf9 bSpace\cf6 (\cf18 temp1\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf18 newStr1\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf18 size\cf3  \cf4 ==\cf3  \cf8 0\cf3  \cf4 &\cf3  \cf18 size1\cf3  \cf4 !=\cf3  \cf8 0\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 newStr1\cf3  \cf4 =\cf3  \cf9 bSpace\cf6 (\cf18 temp1\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf18 newStr1\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 op2\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 				\cf7 check\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf18 size\cf3  \cf4 ==\cf3  \cf8 0\cf3  \cf4 &\cf3  \cf18 size1\cf3  \cf4 ==\cf3  \cf8 0\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 backspace\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf9 reset\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf9 nullify\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonPMLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf5 String\cf3  \cf17 currentValue\cf3  \cf4 =\cf3  \cf7 d0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf5 String\cf3  \cf17 newValue\cf3  \cf4 =\cf3  \cf9 PM\cf6 (\cf18 currentValue\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf2 double\cf3  \cf17 nV\cf3  \cf4 =\cf3  \cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf18 newValue\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf5 String\cf3  \cf17 forLabelnField0\cf3  \cf4 =\cf3  \cf2 null\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "+"\cf6 )\cf3  \cf4 ||\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "-"\cf6 )\cf3  \cf4 ||\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "\'d7"\cf6 )\cf0 \
+\cf3 					\cf4 ||\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "\'f7"\cf6 )\cf3  \cf4 ||\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 "("\cf6 )\cf0 \
+\cf3 					\cf4 ||\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 .\cf9 contains\cf6 (\cf13 ")"\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 				\cf9 nullify\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf9 reset\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "ERROR"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf18 nV\cf3  \cf4 ==\cf3  \cf8 0\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 true\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 dectoHex\cf6 (\cf18 nV\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf18 newValue\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 dectoOct\cf6 (\cf18 nV\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 dectoBin\cf6 (\cf18 nV\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf18 forLabelnField0\cf3  \cf4 =\cf3  \cf7 h0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf18 forLabelnField0\cf3  \cf4 =\cf3  \cf7 d0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf18 forLabelnField0\cf3  \cf4 =\cf3  \cf7 o0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 bin\cf4 .\cf9 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf18 forLabelnField0\cf3  \cf4 =\cf3  \cf7 b0_\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf18 forLabelnField0\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 label\cf4 .\cf9 setText\cf6 (\cf18 forLabelnField0\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonEqualsLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 true\cf4 ;\cf0 \
+\cf3 			\cf7 labelV\cf3  \cf4 =\cf3  \cf7 label\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf7 op2\cf3  \cf4 =\cf3  \cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf7 d0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf4 !\cf7 labelV\cf4 .\cf9 contains\cf6 (\cf13 "("\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 				\cf9 equal\cf6 (\cf7 op1\cf4 ,\cf3  \cf7 op2\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 labelV\cf4 .\cf9 contains\cf6 (\cf13 "("\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 				\cf5 String\cf3  \cf17 s\cf3  \cf4 =\cf3  \cf2 null\cf4 ;\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf7 labelV\cf4 .\cf9 charAt\cf6 (\cf7 labelV\cf4 .\cf9 length\cf6 ()\cf3  \cf4 -\cf3  \cf8 2\cf6 )\cf3  \cf4 !=\cf3  \cf13 ')'\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf18 s\cf3  \cf4 =\cf3  \cf9 convert\cf6 (\cf7 labelV\cf6 )\cf4 ;\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf18 s\cf3  \cf4 +\cf3  \cf13 " ="\cf6 )\cf4 ;\cf0 \
+\cf3 					\cf7 field0\cf4 .\cf9 setText\cf6 (\cf9 operation\cf6 (\cf18 s\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 					\cf18 s\cf3  \cf4 =\cf3  \cf7 labelV\cf4 ;\cf0 \
+\cf3 					\cf7 label\cf4 .\cf9 setText\cf6 (\cf18 s\cf3  \cf4 +\cf3  \cf13 " ="\cf6 )\cf4 ;\cf0 \
+\cf3 					\cf7 field0\cf4 .\cf9 setText\cf6 (\cf9 operation\cf6 (\cf18 s\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonHexLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 h0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 h0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 hex\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 h0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 			\cf9 resetHex\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonDecLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 d0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 d0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 dec\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 d0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 			\cf9 resetDec\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonOctLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 o0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 o0\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 oct\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 o0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 			\cf9 resetOct\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 class\cf3  \cf5 ButtonBinLogic\cf3  \cf2 implements\cf3  \cf14 ActionListener\cf3  \cf6 \{\cf0 \
+\cf3 		
+\f4\i \cf15 @Override
+\f0\i0 \cf0 \
+\cf3 		\cf2 public\cf3  \cf2 void\cf3  \cf10 actionPerformed\cf6 (\cf5 ActionEvent\cf3  \cf16 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 field0\cf4 .\cf9 setText\cf6 (\cf7 b0_\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 b0_\cf4 .\cf9 getText\cf6 ())\cf4 ;\cf0 \
+\cf3 			\cf7 bin\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 b0_\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 			\cf9 resetBin\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 hextoDec\cf6 (\cf5 String\cf3  \cf16 hex\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 long\cf3  \cf17 decimal\cf3  \cf4 =\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf16 hex\cf4 ,\cf3  \cf8 16\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 toString
+\f0\i0 \cf6 (\cf18 decimal\cf6 )\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 hextoOct\cf6 (\cf5 String\cf3  \cf16 hex\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 long\cf3  \cf17 decimal\cf3  \cf4 =\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf9 nonFloat\cf6 (\cf16 hex\cf6 )\cf4 ,\cf3  \cf8 16\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 octal\cf3  \cf4 =\cf3  \cf9 dectoOct\cf6 (\cf18 decimal\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 octal\cf4 ;\cf0 \
+\
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 hextoBin\cf6 (\cf5 String\cf3  \cf16 hex\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 long\cf3  \cf17 decimal\cf3  \cf4 =\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf9 nonFloat\cf6 (\cf16 hex\cf6 )\cf4 ,\cf3  \cf8 16\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 binary\cf3  \cf4 =\cf3  \cf9 dectoBin\cf6 (\cf18 decimal\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 binary\cf4 ;\cf0 \
+\
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 dectoHex\cf6 (\cf2 double\cf3  \cf16 dec\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 hex\cf3  \cf4 =\cf3  \cf2 null\cf4 ;\cf0 \
+\cf3 		\cf2 if\cf3  \cf6 (\cf16 dec\cf3  \cf4 <\cf3  \cf8 0\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf16 dec\cf3  \cf4 =\cf3  \cf8 0\cf3  \cf4 -\cf3  \cf16 dec\cf4 ;\cf0 \
+\cf3 			\cf18 hex\cf3  \cf4 =\cf3  \cf13 "-"\cf3  \cf4 +\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 toHexString
+\f0\i0 \cf6 ((\cf2 long\cf6 )\cf3  \cf16 dec\cf6 )\cf4 .\cf9 toUpperCase\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 			\cf18 hex\cf3  \cf4 =\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 toHexString
+\f0\i0 \cf6 ((\cf2 long\cf6 )\cf3  \cf16 dec\cf6 )\cf4 .\cf9 toUpperCase\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 hex\cf4 ;\cf0 \
+\
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 dectoOct\cf6 (\cf2 double\cf3  \cf16 dec\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 octal\cf3  \cf4 =\cf3  \cf2 null\cf4 ;\cf0 \
+\cf3 		\cf2 if\cf3  \cf6 (\cf16 dec\cf3  \cf4 <\cf3  \cf8 0\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf16 dec\cf3  \cf4 =\cf3  \cf8 0\cf3  \cf4 -\cf3  \cf16 dec\cf4 ;\cf0 \
+\cf3 			\cf18 octal\cf3  \cf4 =\cf3  \cf13 "-"\cf3  \cf4 +\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 toOctalString
+\f0\i0 \cf6 ((\cf2 long\cf6 )\cf3  \cf16 dec\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 			\cf18 octal\cf3  \cf4 =\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 toOctalString
+\f0\i0 \cf6 ((\cf2 long\cf6 )\cf3  \cf16 dec\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 octal\cf4 ;\cf0 \
+\
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 dectoBin\cf6 (\cf2 double\cf3  \cf16 dec\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 binary\cf3  \cf4 =\cf3  \cf2 null\cf4 ;\cf0 \
+\cf3 		\cf2 if\cf3  \cf6 (\cf16 dec\cf3  \cf4 <\cf3  \cf8 0\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf18 binary\cf3  \cf4 =\cf3  \cf5 Integer\cf4 .
+\f4\i \cf19 toBinaryString
+\f0\i0 \cf6 ((\cf2 int\cf6 )\cf3  \cf16 dec\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 			\cf18 binary\cf3  \cf4 =\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 toBinaryString
+\f0\i0 \cf6 ((\cf2 long\cf6 )\cf3  \cf16 dec\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 binary\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 octtoHex\cf6 (\cf5 String\cf3  \cf16 oct\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 long\cf3  \cf17 decimal\cf3  \cf4 =\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf9 nonFloat\cf6 (\cf16 oct\cf6 )\cf4 ,\cf3  \cf8 8\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 hex\cf3  \cf4 =\cf3  \cf9 dectoHex\cf6 (\cf18 decimal\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 hex\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 octtoDec\cf6 (\cf5 String\cf3  \cf16 oct\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 long\cf3  \cf17 decimal\cf3  \cf4 =\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf9 nonFloat\cf6 (\cf16 oct\cf6 )\cf4 ,\cf3  \cf8 8\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 toString
+\f0\i0 \cf6 (\cf18 decimal\cf6 )\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 octtoBin\cf6 (\cf5 String\cf3  \cf16 oct\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 long\cf3  \cf17 decimal\cf3  \cf4 =\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf9 nonFloat\cf6 (\cf16 oct\cf6 )\cf4 ,\cf3  \cf8 8\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 binary\cf3  \cf4 =\cf3  \cf9 dectoBin\cf6 (\cf18 decimal\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 binary\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 bintoHex\cf6 (\cf5 String\cf3  \cf16 bin\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 long\cf3  \cf17 decimal\cf3  \cf4 =\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf9 nonFloat\cf6 (\cf16 bin\cf6 )\cf4 ,\cf3  \cf8 2\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 hex\cf3  \cf4 =\cf3  \cf9 dectoHex\cf6 (\cf18 decimal\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 hex\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 bintoDec\cf6 (\cf5 String\cf3  \cf16 bin\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 long\cf3  \cf17 decimal\cf3  \cf4 =\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf9 nonFloat\cf6 (\cf16 bin\cf6 )\cf4 ,\cf3  \cf8 2\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 toString
+\f0\i0 \cf6 (\cf18 decimal\cf6 )\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 bintoOct\cf6 (\cf5 String\cf3  \cf16 bin\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 long\cf3  \cf17 decimal\cf3  \cf4 =\cf3  \cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf9 nonFloat\cf6 (\cf16 bin\cf6 )\cf4 ,\cf3  \cf8 2\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 octal\cf3  \cf4 =\cf3  \cf9 dectoOct\cf6 (\cf18 decimal\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 octal\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 operation\cf6 (\cf5 String\cf3  \cf16 expression\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 char\cf6 []\cf3  \cf17 tokens\cf3  \cf4 =\cf3  \cf16 expression\cf4 .\cf9 toCharArray\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf5 Stack\cf4 <\cf20 Double\cf4 >\cf3  \cf17 operands\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 Stack\cf4 <\cf20 Double\cf4 >\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf5 Stack\cf4 <\cf20 Character\cf4 >\cf3  \cf17 operators\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 Stack\cf4 <\cf20 Character\cf4 >\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf2 for\cf3  \cf6 (\cf2 int\cf3  \cf17 i\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf3  \cf18 i\cf3  \cf4 <\cf3  \cf18 tokens\cf4 .\cf7 length\cf4 ;\cf3  \cf18 i\cf4 ++\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf18 tokens\cf6 [\cf18 i\cf6 ]\cf3  \cf4 ==\cf3  \cf13 ' '\cf6 )\cf0 \
+\cf3 				\cf2 continue\cf4 ;\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf18 tokens\cf6 [\cf18 i\cf6 ]\cf3  \cf4 >=\cf3  \cf13 '0'\cf3  \cf4 &&\cf3  \cf18 tokens\cf6 [\cf18 i\cf6 ]\cf3  \cf4 <=\cf3  \cf13 '9'\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf5 StringBuffer\cf3  \cf17 sbuf\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 StringBuffer\cf6 ()\cf4 ;\cf0 \
+\cf3 				\cf2 while\cf3  \cf6 (\cf18 i\cf3  \cf4 <\cf3  \cf18 tokens\cf4 .\cf7 length\cf3  \cf4 &&\cf3  \cf18 tokens\cf6 [\cf18 i\cf6 ]\cf3  \cf4 >=\cf3  \cf13 '0'\cf3  \cf4 &&\cf3  \cf18 tokens\cf6 [\cf18 i\cf6 ]\cf3  \cf4 <=\cf3  \cf13 '9'\cf6 )\cf0 \
+\cf3 					\cf18 sbuf\cf4 .\cf9 append\cf6 (\cf18 tokens\cf6 [\cf18 i\cf4 ++\cf6 ])\cf4 ;\cf0 \
+\cf3 				\cf18 operands\cf4 .\cf9 push\cf6 (\cf5 Double\cf4 .
+\f4\i \cf19 parseDouble
+\f0\i0 \cf6 (\cf18 sbuf\cf4 .\cf9 toString\cf6 ()))\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf18 tokens\cf6 [\cf18 i\cf6 ]\cf3  \cf4 ==\cf3  \cf13 '('\cf6 )\cf0 \
+\cf3 				\cf18 operators\cf4 .\cf9 push\cf6 (\cf18 tokens\cf6 [\cf18 i\cf6 ])\cf4 ;\cf0 \
+\cf3 			\cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf18 tokens\cf6 [\cf18 i\cf6 ]\cf3  \cf4 ==\cf3  \cf13 ')'\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf2 while\cf3  \cf6 (\cf18 operators\cf4 .\cf9 peek\cf6 ()\cf3  \cf4 !=\cf3  \cf13 '('\cf6 )\cf0 \
+\cf3 					\cf18 operands\cf4 .\cf9 push\cf6 (\cf9 applyOp\cf6 (\cf18 operators\cf4 .\cf9 pop\cf6 ()\cf4 ,\cf3  \cf18 operands\cf4 .\cf9 pop\cf6 ()\cf4 ,\cf3  \cf18 operands\cf4 .\cf9 pop\cf6 ()))\cf4 ;\cf0 \
+\cf3 				\cf18 operators\cf4 .\cf9 pop\cf6 ()\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf18 tokens\cf6 [\cf18 i\cf6 ]\cf3  \cf4 ==\cf3  \cf13 '+'\cf3  \cf4 ||\cf3  \cf18 tokens\cf6 [\cf18 i\cf6 ]\cf3  \cf4 ==\cf3  \cf13 '-'\cf3  \cf4 ||\cf3  \cf18 tokens\cf6 [\cf18 i\cf6 ]\cf3  \cf4 ==\cf3  \cf13 '\'d7'\cf3  \cf4 ||\cf3  \cf18 tokens\cf6 [\cf18 i\cf6 ]\cf3  \cf4 ==\cf3  \cf13 '\'f7'\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf2 while\cf3  \cf6 (\cf4 !\cf18 operators\cf4 .\cf9 empty\cf6 ()\cf3  \cf4 &&\cf3  \cf9 hasPrecedence\cf6 (\cf18 tokens\cf6 [\cf18 i\cf6 ]\cf4 ,\cf3  \cf18 operators\cf4 .\cf9 peek\cf6 ()))\cf0 \
+\cf3 					\cf18 operands\cf4 .\cf9 push\cf6 (\cf9 applyOp\cf6 (\cf18 operators\cf4 .\cf9 pop\cf6 ()\cf4 ,\cf3  \cf18 operands\cf4 .\cf9 pop\cf6 ()\cf4 ,\cf3  \cf18 operands\cf4 .\cf9 pop\cf6 ()))\cf4 ;\cf0 \
+\cf3 				\cf18 operators\cf4 .\cf9 push\cf6 (\cf18 tokens\cf6 [\cf18 i\cf6 ])\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 		\cf2 while\cf3  \cf6 (\cf4 !\cf18 operators\cf4 .\cf9 empty\cf6 ())\cf0 \
+\cf3 			\cf18 operands\cf4 .\cf9 push\cf6 (\cf9 applyOp\cf6 (\cf18 operators\cf4 .\cf9 pop\cf6 ()\cf4 ,\cf3  \cf18 operands\cf4 .\cf9 pop\cf6 ()\cf4 ,\cf3  \cf18 operands\cf4 .\cf9 pop\cf6 ()))\cf4 ;\cf0 \
+\
+\cf3 		\cf2 return\cf3  \cf18 operands\cf4 .\cf9 pop\cf6 ()\cf4 .\cf9 toString\cf6 ()\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf2 boolean\cf3  \cf10 hasPrecedence\cf6 (\cf2 char\cf3  \cf16 op1\cf4 ,\cf3  \cf2 char\cf3  \cf16 op2\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 if\cf3  \cf6 (\cf16 op2\cf3  \cf4 ==\cf3  \cf13 '('\cf3  \cf4 ||\cf3  \cf16 op2\cf3  \cf4 ==\cf3  \cf13 ')'\cf6 )\cf0 \
+\cf3 			\cf2 return\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 		\cf2 if\cf3  \cf6 ((\cf16 op1\cf3  \cf4 ==\cf3  \cf13 '\'d7'\cf3  \cf4 ||\cf3  \cf16 op1\cf3  \cf4 ==\cf3  \cf13 '\'f7'\cf6 )\cf3  \cf4 &&\cf3  \cf6 (\cf16 op2\cf3  \cf4 ==\cf3  \cf13 '+'\cf3  \cf4 ||\cf3  \cf16 op2\cf3  \cf4 ==\cf3  \cf13 '-'\cf6 ))\cf0 \
+\cf3 			\cf2 return\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 		\cf2 else\cf0 \
+\cf3 			\cf2 return\cf3  \cf2 true\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf2 double\cf3  \cf10 applyOp\cf6 (\cf2 char\cf3  \cf16 op\cf4 ,\cf3  \cf2 double\cf3  \cf16 b\cf4 ,\cf3  \cf2 double\cf3  \cf16 a\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 switch\cf3  \cf6 (\cf16 op\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 case\cf3  \cf13 '+'\cf4 :\cf0 \
+\cf3 			\cf2 return\cf3  \cf16 a\cf3  \cf4 +\cf3  \cf16 b\cf4 ;\cf0 \
+\cf3 		\cf2 case\cf3  \cf13 '-'\cf4 :\cf0 \
+\cf3 			\cf2 return\cf3  \cf16 a\cf3  \cf4 -\cf3  \cf16 b\cf4 ;\cf0 \
+\cf3 		\cf2 case\cf3  \cf13 '\'d7'\cf4 :\cf0 \
+\cf3 			\cf2 return\cf3  \cf16 a\cf3  \cf4 *\cf3  \cf16 b\cf4 ;\cf0 \
+\cf3 		\cf2 case\cf3  \cf13 '\'f7'\cf4 :\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf16 b\cf3  \cf4 ==\cf3  \cf8 0\cf6 )\cf0 \
+\cf3 				\cf2 throw\cf3  \cf2 new\cf3  \cf9 UnsupportedOperationException\cf6 (\cf13 "Cannot divide by zero"\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf2 return\cf3  \cf16 a\cf3  \cf4 /\cf3  \cf16 b\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 		\cf2 return\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf2 void\cf3  \cf10 max\cf6 ()\cf3  \cf6 \{\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 max\cf3  \cf4 =\cf3  \cf13 "MAX"\cf4 ;\cf0 \
+\cf3 		\cf7 field0\cf4 .\cf9 setText\cf6 (\cf18 max\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 h0\cf4 .\cf9 setText\cf6 (\cf18 max\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 d0\cf4 .\cf9 setText\cf6 (\cf18 max\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 o0\cf4 .\cf9 setText\cf6 (\cf18 max\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf18 max\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 label\cf4 .\cf9 setVisible\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 conversion\cf6 (\cf5 String\cf3  \cf16 str\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 dec_\cf3  \cf4 =\cf3  \cf2 null\cf4 ,\cf3  \cf17 sFinal\cf3  \cf4 =\cf3  \cf2 null\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 s\cf3  \cf4 =\cf3  \cf16 str\cf4 .\cf9 replaceAll\cf6 (\cf13 "\\\\+ "\cf4 ,\cf3  \cf13 ""\cf6 )\cf4 .\cf9 replaceAll\cf6 (\cf13 "\\\\- "\cf4 ,\cf3  \cf13 ""\cf6 )\cf4 .\cf9 replaceAll\cf6 (\cf13 "\\\\\'d7 "\cf4 ,\cf3  \cf13 ""\cf6 )\cf4 .\cf9 replaceAll\cf6 (\cf13 "\\\\\'f7 "\cf4 ,\cf3  \cf13 ""\cf6 )\cf0 \
+\cf3 				\cf4 .\cf9 replaceAll\cf6 (\cf13 "\\\\( "\cf4 ,\cf3  \cf13 ""\cf6 )\cf4 .\cf9 replaceAll\cf6 (\cf13 "\\\\)"\cf4 ,\cf3  \cf13 ""\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf6 []\cf3  \cf17 a\cf3  \cf4 =\cf3  \cf18 s\cf4 .\cf9 split\cf6 (\cf13 " "\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 for\cf3  \cf6 (\cf2 int\cf3  \cf17 i\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf3  \cf18 i\cf3  \cf4 <\cf3  \cf18 a\cf4 .\cf7 length\cf4 ;\cf3  \cf18 i\cf4 ++\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf11 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 dec_\cf3  \cf4 =\cf3  \cf9 hextoDec\cf6 (\cf18 a\cf6 [\cf18 i\cf6 ])\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf11 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 dec_\cf3  \cf4 =\cf3  \cf18 a\cf6 [\cf18 i\cf6 ]\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf11 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 dec_\cf3  \cf4 =\cf3  \cf9 octtoDec\cf6 (\cf18 a\cf6 [\cf18 i\cf6 ])\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 bin\cf4 .\cf11 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 dec_\cf3  \cf4 =\cf3  \cf9 bintoDec\cf6 (\cf18 a\cf6 [\cf18 i\cf6 ])\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf18 sFinal\cf3  \cf4 =\cf3  \cf16 str\cf4 .\cf9 replaceAll\cf6 (\cf18 a\cf6 [\cf18 i\cf6 ]\cf4 ,\cf3  \cf18 dec_\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf16 str\cf3  \cf4 =\cf3  \cf18 sFinal\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 sFinal\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 nonFloat\cf6 (\cf5 String\cf3  \cf16 str\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 int\cf3  \cf17 index\cf3  \cf4 =\cf3  \cf16 str\cf4 .\cf9 length\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf2 for\cf3  \cf6 (\cf2 int\cf3  \cf17 i\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf3  \cf18 i\cf3  \cf4 <\cf3  \cf16 str\cf4 .\cf9 length\cf6 ()\cf4 ;\cf3  \cf18 i\cf4 ++\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf16 str\cf4 .\cf9 charAt\cf6 (\cf18 i\cf6 )\cf3  \cf4 ==\cf3  \cf13 '.'\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 index\cf3  \cf4 =\cf3  \cf18 i\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 		\cf2 return\cf3  \cf16 str\cf4 .\cf9 substring\cf6 (\cf8 0\cf4 ,\cf3  \cf18 index\cf6 )\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 convert\cf6 (\cf5 String\cf3  \cf16 str\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 int\cf3  \cf17 index\cf3  \cf4 =\cf3  \cf8 0\cf4 ,\cf3  \cf17 n\cf3  \cf4 =\cf3  \cf16 str\cf4 .\cf9 length\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 st\cf3  \cf4 =\cf3  \cf2 null\cf4 ;\cf0 \
+\cf3 		\cf2 for\cf3  \cf6 (\cf2 int\cf3  \cf17 i\cf3  \cf4 =\cf3  \cf18 n\cf3  \cf4 -\cf3  \cf8 1\cf4 ;\cf3  \cf18 i\cf3  \cf4 >=\cf3  \cf8 0\cf4 ;\cf3  \cf18 i\cf4 --\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf16 str\cf4 .\cf9 charAt\cf6 (\cf18 i\cf6 )\cf3  \cf4 ==\cf3  \cf13 ' '\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 index\cf3  \cf4 =\cf3  \cf18 i\cf3  \cf4 +\cf3  \cf8 1\cf4 ;\cf0 \
+\cf3 				\cf2 break\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 s\cf3  \cf4 =\cf3  \cf16 str\cf4 .\cf9 substring\cf6 (\cf18 index\cf4 ,\cf3  \cf18 n\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf11 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf18 st\cf3  \cf4 =\cf3  \cf16 str\cf4 .\cf9 substring\cf6 (\cf8 0\cf4 ,\cf3  \cf18 index\cf6 )\cf3  \cf4 +\cf3  \cf9 hextoDec\cf6 (\cf18 s\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf11 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf18 st\cf3  \cf4 =\cf3  \cf16 str\cf4 .\cf9 substring\cf6 (\cf8 0\cf4 ,\cf3  \cf18 index\cf6 )\cf3  \cf4 +\cf3  \cf18 s\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf11 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf18 st\cf3  \cf4 =\cf3  \cf16 str\cf4 .\cf9 substring\cf6 (\cf8 0\cf4 ,\cf3  \cf18 index\cf6 )\cf3  \cf4 +\cf3  \cf9 octtoDec\cf6 (\cf18 s\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 bin\cf4 .\cf11 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf18 st\cf3  \cf4 =\cf3  \cf16 str\cf4 .\cf9 substring\cf6 (\cf8 0\cf4 ,\cf3  \cf18 index\cf6 )\cf3  \cf4 +\cf3  \cf9 bintoDec\cf6 (\cf18 s\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 st\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 PM\cf6 (\cf5 String\cf3  \cf16 currentValue\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 newValue\cf3  \cf4 =\cf3  \cf2 null\cf4 ;\cf0 \
+\cf3 		\cf2 if\cf3  \cf6 (\cf16 currentValue\cf4 .\cf9 contains\cf6 (\cf13 "-"\cf6 ))\cf3  \cf6 \{\cf0 \
+\cf3 			\cf18 newValue\cf3  \cf4 =\cf3  \cf16 currentValue\cf4 .\cf9 substring\cf6 (\cf8 1\cf4 ,\cf3  \cf16 currentValue\cf4 .\cf9 length\cf6 ())\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf16 currentValue\cf3  \cf4 ==\cf3  \cf13 "0"\cf3  \cf4 ||\cf3  \cf16 currentValue\cf3  \cf4 ==\cf3  \cf13 "0.0"\cf3  \cf4 ||\cf3  \cf16 currentValue\cf3  \cf4 ==\cf3  \cf13 ".0"\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf18 newValue\cf3  \cf4 =\cf3  \cf13 "0"\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 			\cf18 newValue\cf3  \cf4 =\cf3  \cf13 "-"\cf3  \cf4 +\cf3  \cf16 currentValue\cf4 ;\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 newValue\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf2 void\cf3  \cf10 equal\cf6 (\cf2 double\cf3  \cf16 op1\cf4 ,\cf3  \cf2 double\cf3  \cf16 op2\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 f\cf3  \cf4 =\cf3  \cf7 field0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 h\cf3  \cf4 =\cf3  \cf7 h0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 d\cf3  \cf4 =\cf3  \cf7 d0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 o\cf3  \cf4 =\cf3  \cf7 o0\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 b\cf3  \cf4 =\cf3  \cf7 b0_\cf4 .\cf9 getText\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf2 double\cf3  \cf17 ans\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 		\cf5 String\cf3  \cf17 ansStr\cf3  \cf4 =\cf3  \cf2 null\cf4 ;\cf0 \
+\cf3 		\cf2 if\cf3  \cf6 (\cf7 check\cf3  \cf4 !=\cf3  \cf8 0\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 check\cf3  \cf4 ==\cf3  \cf8 1\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 ans\cf3  \cf4 =\cf3  \cf16 op1\cf3  \cf4 +\cf3  \cf16 op2\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 check\cf3  \cf4 ==\cf3  \cf8 2\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 ans\cf3  \cf4 =\cf3  \cf16 op1\cf3  \cf4 -\cf3  \cf16 op2\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 check\cf3  \cf4 ==\cf3  \cf8 3\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 ans\cf3  \cf4 =\cf3  \cf16 op1\cf3  \cf4 *\cf3  \cf16 op2\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 check\cf3  \cf4 ==\cf3  \cf8 4\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 ans\cf3  \cf4 =\cf3  \cf16 op1\cf3  \cf4 /\cf3  \cf16 op2\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 check\cf3  \cf4 ==\cf3  \cf8 5\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 ans\cf3  \cf4 =\cf3  \cf16 op1\cf3  \cf4 %\cf3  \cf16 op2\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf7 hex\cf4 .\cf11 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf18 ans\cf3  \cf4 <\cf3  \cf8 0\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf18 ans\cf3  \cf4 =\cf3  \cf8 0\cf3  \cf4 -\cf3  \cf18 ans\cf4 ;\cf0 \
+\cf3 					\cf18 ansStr\cf3  \cf4 =\cf3  \cf13 "-"\cf3  \cf4 +\cf3  \cf9 dectoHex\cf6 ((\cf2 long\cf6 )\cf3  \cf18 ans\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf18 ansStr\cf3  \cf4 =\cf3  \cf9 dectoHex\cf6 ((\cf2 long\cf6 )\cf3  \cf18 ans\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf18 ansStr\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf18 ansStr\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 hextoDec\cf6 (\cf18 ansStr\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 hextoOct\cf6 (\cf18 ansStr\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 hextoBin\cf6 (\cf18 ansStr\cf6 ))\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 dec\cf4 .\cf11 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 ansStr\cf3  \cf4 =\cf3  \cf5 Double\cf4 .
+\f4\i \cf19 toString
+\f0\i0 \cf6 (\cf18 ans\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf18 ansStr\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 dectoHex\cf6 ((\cf2 long\cf6 )\cf3  \cf18 ans\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf18 ansStr\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 dectoOct\cf6 ((\cf2 long\cf6 )\cf3  \cf18 ans\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 dectoBin\cf6 ((\cf2 long\cf6 )\cf3  \cf18 ans\cf6 ))\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 oct\cf4 .\cf11 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf18 ans\cf3  \cf4 <\cf3  \cf8 0\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf18 ans\cf3  \cf4 =\cf3  \cf8 0\cf3  \cf4 -\cf3  \cf18 ans\cf4 ;\cf0 \
+\cf3 					\cf18 ansStr\cf3  \cf4 =\cf3  \cf13 "-"\cf3  \cf4 +\cf3  \cf9 dectoOct\cf6 ((\cf2 long\cf6 )\cf3  \cf18 ans\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf18 ansStr\cf3  \cf4 =\cf3  \cf9 dectoOct\cf6 ((\cf2 long\cf6 )\cf3  \cf18 ans\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf18 ansStr\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 octtoHex\cf6 (\cf18 ansStr\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 octtoDec\cf6 (\cf18 ansStr\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf18 ansStr\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf9 octtoBin\cf6 (\cf18 ansStr\cf6 ))\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf3  \cf2 if\cf3  \cf6 (\cf7 bin\cf4 .\cf11 getForeground\cf6 ()\cf3  \cf4 ==\cf3  \cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf2 if\cf3  \cf6 (\cf18 ans\cf3  \cf4 <\cf3  \cf8 0\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 					\cf18 ans\cf3  \cf4 =\cf3  \cf8 0\cf3  \cf4 -\cf3  \cf18 ans\cf4 ;\cf0 \
+\cf3 					\cf18 ansStr\cf3  \cf4 =\cf3  \cf13 "-"\cf3  \cf4 +\cf3  \cf9 dectoBin\cf6 ((\cf2 long\cf6 )\cf3  \cf18 ans\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 					\cf18 ansStr\cf3  \cf4 =\cf3  \cf9 dectoBin\cf6 ((\cf2 long\cf6 )\cf3  \cf18 ans\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 field0\cf4 .\cf9 setText\cf6 (\cf18 ansStr\cf6 )\cf4 ;\cf0 \
+\cf3 				\cf7 h0\cf4 .\cf9 setText\cf6 (\cf9 bintoHex\cf6 (\cf18 ansStr\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf7 d0\cf4 .\cf9 setText\cf6 (\cf9 bintoDec\cf6 (\cf18 ansStr\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf7 o0\cf4 .\cf9 setText\cf6 (\cf9 bintoOct\cf6 (\cf18 ansStr\cf6 ))\cf4 ;\cf0 \
+\cf3 				\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf18 ansStr\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf0 \
+\cf3 		\cf6 \}\cf3  \cf2 else\cf3  \cf6 \{\cf0 \
+\cf3 			\cf7 field0\cf4 .\cf9 setText\cf6 (\cf18 f\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 h0\cf4 .\cf9 setText\cf6 (\cf18 h\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 d0\cf4 .\cf9 setText\cf6 (\cf18 d\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 o0\cf4 .\cf9 setText\cf6 (\cf18 o\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf18 b\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 		\cf7 label\cf4 .\cf9 setText\cf6 (\cf7 label\cf4 .\cf9 getText\cf6 ()\cf3  \cf4 +\cf3  \cf13 " ="\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 check\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf5 String\cf3  \cf10 bSpace\cf6 (\cf5 String\cf3  \cf16 a\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 int\cf3  \cf17 size\cf3  \cf4 =\cf3  \cf16 a\cf4 .\cf9 length\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf2 if\cf3  \cf6 (\cf18 size\cf3  \cf4 >\cf3  \cf8 0\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf5 StringBuilder\cf3  \cf17 strB\cf3  \cf4 =\cf3  \cf2 new\cf3  \cf9 StringBuilder\cf6 (\cf16 a\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf18 strB\cf4 .\cf9 deleteCharAt\cf6 (\cf18 size\cf3  \cf4 -\cf3  \cf8 1\cf6 )\cf4 ;\cf0 \
+\cf3 			\cf16 a\cf3  \cf4 =\cf3  \cf18 strB\cf4 .\cf9 toString\cf6 ()\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 		\cf2 return\cf3  \cf16 a\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf2 boolean\cf3  \cf10 boundsCheck\cf6 (\cf5 String\cf3  \cf16 str\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 		\cf2 boolean\cf3  \cf17 within\cf4 ;\cf0 \
+\cf3 		\cf2 try\cf3  \cf6 \{\cf0 \
+\cf3 			\cf2 if\cf3  \cf6 (\cf5 Long\cf4 .
+\f4\i \cf19 parseLong
+\f0\i0 \cf6 (\cf16 str\cf4 ,\cf3  \cf8 16\cf6 )\cf3  \cf4 <\cf3  \cf5 Long\cf4 .
+\f1\i\b \cf12 MAX_VALUE
+\f0\i0\b0 \cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 				\cf18 within\cf3  \cf4 =\cf3  \cf2 true\cf4 ;\cf0 \
+\cf3 			\cf6 \}\cf3  \cf2 else\cf0 \
+\cf3 				\cf18 within\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf3  \cf2 catch\cf3  \cf6 (\cf5 NumberFormatException\cf3  \cf17 e\cf6 )\cf3  \cf6 \{\cf0 \
+\cf3 			\cf18 within\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 		\cf6 \}\cf0 \
+\cf3 		\cf2 return\cf3  \cf18 within\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf2 void\cf3  \cf10 reset\cf6 ()\cf3  \cf6 \{\cf0 \
+\cf3 		\cf7 h0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 d0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 o0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0_\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 field0\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 label\cf4 .\cf9 setText\cf6 (\cf13 "0"\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 op1\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 		\cf7 op2\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 		\cf7 check\cf3  \cf4 =\cf3  \cf8 0\cf4 ;\cf0 \
+\cf3 		\cf7 isEqual\cf3  \cf4 =\cf3  \cf2 false\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf2 void\cf3  \cf10 resetHex\cf6 ()\cf3  \cf6 \{\cf0 \
+\cf3 		\cf7 hex\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 dec\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 oct\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bin\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 h0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 d0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 o0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0_\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b1\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b2\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b3\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b4\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b5\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b6\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b7\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b8\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b9\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bA\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bB\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bC\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bD\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bE\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bF\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bDot\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf9 resetOps\cf6 ()\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf2 void\cf3  \cf10 resetDec\cf6 ()\cf3  \cf6 \{\cf0 \
+\cf3 		\cf7 hex\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 dec\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 oct\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bin\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 h0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 d0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 o0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0_\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bA\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bB\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bC\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bD\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bE\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bF\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b1\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b2\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b3\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b4\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b5\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b6\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b7\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b8\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b9\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bDot\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf9 resetOps\cf6 ()\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf2 void\cf3  \cf10 resetOct\cf6 ()\cf3  \cf6 \{\cf0 \
+\cf3 		\cf7 hex\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 dec\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 oct\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bin\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 h0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 d0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 o0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0_\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bA\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bB\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bC\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bD\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bE\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bF\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b1\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b2\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b3\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b4\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b5\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b6\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b7\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b8\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b9\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bDot\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf9 resetOps\cf6 ()\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf2 void\cf3  \cf10 resetBin\cf6 ()\cf3  \cf6 \{\cf0 \
+\cf3 		\cf7 hex\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 dec\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 oct\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 DARK_GRAY
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bin\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 h0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 d0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 o0\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 gray
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0_\cf4 .\cf9 setForeground\cf6 (\cf5 Color\cf4 .
+\f1\i\b \cf12 blue
+\f0\i0\b0 \cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bA\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bB\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bC\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bD\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bE\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bF\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b1\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b2\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b3\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b4\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b5\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b6\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b7\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b8\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b9\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bDot\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf9 resetOps\cf6 ()\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf2 void\cf3  \cf10 nullify\cf6 ()\cf3  \cf6 \{\cf0 \
+\cf3 		\cf7 bA\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bB\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bC\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bD\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bE\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bF\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b0\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b1\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b2\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b3\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b4\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b5\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b6\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b7\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b8\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 b9\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 bDot\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 add\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 sub\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 mul\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 div\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 mod\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 backspace\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 C\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 equals\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 openP\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 closeP\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 arrow\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 plusMinus\cf4 .\cf9 setEnabled\cf6 (\cf2 false\cf6 )\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\
+\cf3 	\cf2 public\cf3  \cf2 void\cf3  \cf10 resetOps\cf6 ()\cf3  \cf6 \{\cf0 \
+\cf3 		\cf7 add\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 sub\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 mul\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 div\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 mod\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 backspace\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 C\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 equals\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 openP\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 closeP\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 arrow\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 		\cf7 plusMinus\cf4 .\cf9 setEnabled\cf6 (\cf2 true\cf6 )\cf4 ;\cf0 \
+\cf3 	\cf6 \}\cf0 \
+\cf6 \}\cf0 \
+}
