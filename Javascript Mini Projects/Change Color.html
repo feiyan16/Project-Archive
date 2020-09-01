@@ -1,0 +1,23 @@
+<!Doctype html>
+<html>
+    <head>
+        <link href = "Change%20Color.css" type = "text/css" rel = "stylesheet">
+        <title>Change Color</title>
+    </head>
+    <body>
+        <button type = "button" class = "colorBtn">Press here to change background color</button>
+        
+        <script>
+            const colorBtn = document.querySelector('.colorBtn');
+            const bodybkgrnd = document.querySelector('body');
+            const colors = ['#FFCAE8','#FFFA85','#BFFFB4','#C0DCFF','#DFBBFF','#FFB893','#5DA2B8','#8671B8','#F48A0E','#F4C731','#D46E82', '#006E82', '#7594C6'];
+
+            colorBtn.addEventListener('click', changeColor);
+
+            function changeColor() {
+                let random = Math.floor(Math.random()*colors.length);
+                bodybkgrnd.style.backgroundColor = colors[random];
+            }
+        </script>
+    </body>
+</html>

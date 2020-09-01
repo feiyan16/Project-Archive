@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        <link href = "Number%20Counter%20Preloader.css" type = "text/css" rel = "stylesheet">
+        <title>Number Counter Preloader</title>
+    </head>
+    <body>
+        <div class = "preloader">
+            <div class = "counter">0</div>
+        </div>
+        <section>
+            <h2>Welcome back all! <span>Stay tuned for more videos</span></h2>
+            <p>
+                The boy covered in blood stood amidst a barren forest. The branches fell, snapped from the fire. The ground was covered in ashes of both the innocent and the gullible. From the distance, there were screams and cries and other sounds of chaos. It echoed in the boy’s ears but as a faded shadow he had grown numb to. Around him were the bodies of those he had just killed. They were in his way. He took a step forward, crossing over a limp arm. 
+                <br><br>
+                There was a snap, the sound of a branch as a body shifted its weight. The boy didn’t seem to notice, and the man who was thought dead raised his arm, a small dagger in his grip. A sliver of life seemed to fill the man’s eyes as the boy’s unawareness gave him hope he could live, but it was short lived. 
+                <br><br>
+                The boy tilted his head, the movement as crisp as the snap of the branch, and a black shadow zipped through the charred forest like a black lightning bolt. The man fell to the ground and a raven landed on the boy’s shoulders. The body landed with a dull thud, a gaping hole in place of where was once a heart. The raven perched on the boy’s shoulders and croaked, just once, its beak dripping with blood. 
+                <br><br>
+                The boy touched its head lightly with his blood cracked fingers and the raven unfolded its wings and bowed its head towards its body. As it bowed, its feathers thickened and grew long till it reached the ground, and all form of a raven was gone, except two sharp golden claws. They clasped onto the boy’s shoulders, one on each, and a cape as dark as midnight draped behind him.
+                <br><br>
+                The boy continued ahead to his destination, disappearing in a mist of shadows and reappearing in what was once the room of an Empress. Now all it was, was the room of a dying woman, and her emperor, a corpse on a battlefield. The boy readied his sword, the blade half the boy’s size in both width and height, and the color so dark no light could be reflected. 
+                <br><br>
+                The woman he was supposed to kill stood at the balcony looking out to a kingdom of gray ruin. She turned to face the boy just as he raised his ebony weapon above his head. She called his name, just once, and in a moment as the blade was brought down, he saw her smile. She greeted death as darkness would have greeted the light.
+                <br><br>
+                The woman fell onto the ground like the silhouette of pale silk slipping off a shoulder. The boy crouched over her body, his shoulders hunched, and his fingers stained with red gripped the hilt of ebony death one last time. She lay so still, her face beautiful and serene. Her lifeless body, so pale next to the boy’s ebony sword.
+                <br><br>
+                The boy left the room of the last death of a long war, and once again stood in a world of ashes and ruins. He looked up at the gray sky. The death of Aurora Syrelia, a final sacrifice. The war was over.  
+            </p>
+        </section>
+        
+        <script src = "https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type = "text/javascript">
+            function counter() {
+                var count = setInterval(function(){
+                    var c = parseInt($('.counter').text());
+                    $('.counter').text((++c).toString());
+                    if (c == 100) {
+                        clearInterval(count);
+                        $('.counter').addClass('hide');
+                        $('.preloader').addClass('active');
+                    }
+                }, 20)
+            }
+            counter();
+        </script>
+    </body>
+</html>

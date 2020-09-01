@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href = "Slider.css" type = "text/css" rel = "stylesheet">
+        <title>Slider</title>
+    </head>
+    <body>
+        <div class = "frame">
+            <div class = "images">
+                <button type = "button" class = "btn prevBtn">˂</button>
+                <button type = "button" class = "btn nextBtn">˃</button>
+            </div>
+        </div>
+            
+        <script>
+            const nextBtn = document.querySelector('.nextBtn');
+            const prevBtn = document.querySelector('.prevBtn');
+            const container = document.querySelector('.images');
+            
+            let counter = 0;
+            
+            nextBtn.addEventListener('click', nextImage);
+            prevBtn.addEventListener('click', prevImage);
+            
+            function nextImage() {
+                container.animate(
+                    [
+                        {opacity: '0.1'},
+                        {opacity: '1.0'}
+                    ], 
+                    {
+                        duration: 1000,
+                        fill: 'forwards'
+                    } 
+                );
+                
+                if (counter === 4) {
+                    counter = -1;
+                }
+                
+                counter++;
+                
+                container.style.backgroundImage = "url(Images/img" + counter + ".jpeg)"
+            }
+            
+            function prevImage() {
+                container.animate(
+                    [
+                        {opacity: '0.1'},
+                        {opacity: '1.0'}
+                    ], 
+                    {
+                        duration: 1000,
+                        fill: 'forwards'
+                    } 
+                );
+                
+                if (counter === 0) {
+                    counter = 5;
+                }
+                
+                counter--;
+                
+                container.style.backgroundImage = "url(Images/img" + counter + ".jpeg)"
+            }
+        </script>
+    </body>
+</html>

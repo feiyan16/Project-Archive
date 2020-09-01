@@ -1,0 +1,49 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6e6e6;
+}
+
+.counter-box {
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: #4f4f4f;
+    padding: 1rem;
+    flex: 0 0 70%;
+    border-radius: 10px;
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 1),
+                10px 10px 15px rgba(210, 210, 210, 1);
+}
+
+.counter {
+    font-size: 6rem;
+}
+
+.btn {
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #4f4f4f;
+    padding: 1rem;
+    margin: 0.5rem 1rem;
+    border: none;
+    box-shadow: -5px -5px 8px rgba(255, 255, 255, 1),
+                5px 5px 8px rgba(210, 210, 210, 1);
+    outline: none;
+}
+
+.btn:hover {
+    box-shadow: -5px -5px 8px rgba(255, 255, 255, 0.8),
+                inset -5px -5px 8px rgba(255, 255, 255, 0.5),
+                5px 5px 8px rgba(210, 210, 210, 0.8),
+                inset 5px 5px 8px rgba(210, 210, 210, 0.5);
+}
+
+.btn:active {
+    box-shadow: inset -5px -5px 8px rgba(255, 255, 255, 1),
+                inset 5px 5px 8px rgba(210, 210, 210, 1);
+}

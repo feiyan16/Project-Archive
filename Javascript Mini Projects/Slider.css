@@ -1,0 +1,59 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: pink;
+}
+
+.frame {
+    text-align: center;
+    width: 25rem;
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+}
+
+.images {
+    background: url(Images/img0.jpeg) center/cover no-repeat;
+    min-height: 70vh;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.btn {
+    display: inline-block;
+    background: pink;
+    color: white;
+    border: 2px solid white;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    outline: none;
+}
+
+.btn:hover {
+    background: rgba(255,255,255,0.7);
+}
+
+.btn:active {
+    background: rgba(255,255,255,1);
+}
+
+.prevBtn {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    box-shadow: -5px 5px 10px rgba(0,0,0,0.2);
+}
+
+.nextBtn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+}
+

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <link href = "Quotes.css" type = "text/css" rel = "stylesheet">
+        <title>Quotes</title>
+    </head>
+    <body>
+        <div class = "container">
+            <h2>Quotes by famous people</h2>
+            <button type = "button" id = "quoteBtn">click to display a quote</button>
+            <blockquote>
+                <h2 id = "quote">quote</h2>
+            </blockquote>
+            <h3 id = "quoteAuthor">author of the quote</h3>
+        </div>
+        
+        <script>
+            const quotes = [
+                {
+                    name: 'Albert Einstein',
+                    quote: 'I have no special talent. I am only passionately curious.'
+                },
+                {
+                    name: 'William Shakespeare',
+                    quote: 'Wisely, and slow. They stumble that run fast'
+                },
+                {
+                    name: 'Mother Teresa',
+                    quote: 'If you judge people, you have no time to love them.'
+                },
+                {
+                    name: 'Buddha',
+                    quote: 'All that we are is the result of what we have thought.'
+                },
+                {
+                    name: 'Coco Chanel',
+                    quote: 'The most courageous act is still to think for yourself. Aloud.'
+                },
+                {
+                    name: 'Plato',
+                    quote: 'The greatest wealth is to live content with little.'
+                }
+            ]
+            
+            const quoteBtn = document.querySelector('#quoteBtn');
+            const quoteAuthor = document.querySelector('#quoteAuthor');
+            const quote = document.querySelector('#quote');
+            
+            quoteBtn.addEventListener('click', displayQuote);
+            
+            function displayQuote() {
+                let index = Math.floor(Math.random() * quotes.length);
+                quoteAuthor.innerHTML = quotes[index].name;
+                quote.innerHTML = quotes[index].quote;
+            }
+            
+        </script>
+    </body>
+</html>

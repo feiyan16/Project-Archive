@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <link href = "Message.css" type = "text/css" rel = "stylesheet">
+        <title>Send Message</title>
+    </head>
+    <body>
+        <div class = "container">
+            <h1>Message you would like to send</h1>
+            <input type = "text" name = "messageIn" id = "messageIn">
+            <button type = "button" id = "sendBtn">Press to Send</button>
+            <h1>Last message delivered</h1>
+            <h1 id = "messageOut"></h1>
+        </div>
+        
+        <script>
+            const sendBtn = document.querySelector('#sendBtn');
+            const messageIn = document.querySelector('#messageIn');
+            const messageOut = document.querySelector('#messageOut');
+            
+            sendBtn.addEventListener('click', sendMsg);
+            
+            function sendMsg() {
+                let content = messageIn.value;
+                if (content === "") {
+                    alert("Please enter valid value, current message is empty.")
+                } else {
+                    messageOut.innerHTML = content;
+                    messageIn.value = "";
+                }
+            }
+            
+        </script>
+    </body>
+</html>

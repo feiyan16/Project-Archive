@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <link href = "Counter.css" type = "text/css" rel = "stylesheet">
+        <title>Counter</title>
+    </head>
+    <body>
+        <div class = "counter-box">
+            <h1>Counter</h1>
+            <h1 class = "counter">0</h1>
+            <div id = "btns">
+                <button type = "button" class = "btn" id = "addCountBtn">+</button>
+                <button type = "button" class = "btn" id = "lowerCountBtn">−</button>
+            </div>
+        </div>
+        
+        <script>
+            let counter = document.querySelector('.counter');
+            const addCount = document.querySelector('#addCountBtn');
+            const lowerCount = document.querySelector('#lowerCountBtn');
+            
+            let count = 0;
+            
+            addCount.addEventListener('click', increment);
+            lowerCount.addEventListener('click', decrement);
+            
+            function increment() {
+                count++;
+                counter.innerHTML = count;
+                if (count > 0) {
+                    counter.style.color = '#426E47';
+                } else if (counter.innerHTML === '0') {
+                    counter.style.color = '#4f4f4f'
+                }
+                counter.animate(
+                    [{opacity: '0.2'}, {opacity: '1.0'}], 
+                    {
+                        duration: 500, 
+                        fill: 'forwards'
+                    }
+                );
+            }
+            
+            function decrement() {
+                count--;
+                counter.innerHTML = count;
+                if (count < 0) {
+                    counter.style.color = '#84150A';
+                } else if (counter.innerHTML === '0') {
+                    counter.style.color = '#4f4f4f'
+                }
+                counter.animate(
+                    [{opacity: '0.2'}, {opacity: '1.0'}], 
+                    {
+                        duration: 500, 
+                        fill: 'forwards'
+                    }
+                );
+            }
+        </script>
+    </body>
+</html>
