@@ -1,0 +1,7 @@
+total 232
+-rw-r--r--@ 1 feiyan  staff    161 Oct 22 14:35 hello.c
+-rw-r--r--  1 feiyan  staff      0 Oct 22 14:36 sample.lst
+-rwxr-xr-x  1 feiyan  staff  49800 Oct 22 14:36 simple-cat
+-rw-r--r--@ 1 feiyan  staff    477 Oct 22 14:35 simple-cat.c
+-rwxr-xr-x  1 feiyan  staff  49736 Oct 22 14:35 simple-ls
+-rw-r--r--@ 1 feiyan  staff    516 Oct 22 14:35 simple-ls.c

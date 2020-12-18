@@ -1,0 +1,95 @@
+Script started on Wed Nov 11 22:38:10 2020
+[1m[7m%[27m[1m[0m                                                                                ]7;file://Feiyans-MacBook-Air.local/Users/feiyan/desktop[0m[27m[24m[Jfeiyan@Feiyans-MacBook-Air desktop % [K[?2004hsssh fxs180012@cs1.utdallas.edu[?2004l
+                      University of Texas at Dallas
+                      Department of Computer Science
+
+                Use of UTD Information Systems is subject to
+          the UTD Information Security and Acceptable Use Policy.
+
+  Pursuant to Texas Administrative Code 202:
+  (1) Unauthorized use is prohibited;
+  (2) Usage may be subject to security testing and monitoring;
+  (3) Misuse is subject to criminal prosecution; and
+  (4) No expectation of privacy except as otherwise provided by applicable
+      privacy laws.
+
+      If five (5) incorrect passwords are received from your IP address,
+    this system will ban your IP address access for twenty-four (24) hours.
+
+       ATTENTION: utdnetid != utdnetid@utdallas.edu (UTD != Google!)
+
+   Just use utdnetid, and for the love of programming, STOP USING ALL CAPS!
+
+  [[NOTE: All CS Graduate Students should use csgrads1.utdallas.edu      ]]
+  [[   If you are a CS Graduate Student, you cannot logon to this server.]]
+
+
+ ***** This system will require a connection to the GlobalProtect VPN starting
+ on the following dates:
+
+ cslinux1.utdallas.edu - June 15, 2020
+ cslinux2.utdallas.edu - June 22, 2020
+
+ ***** GlobalProtect VPN Instructions: https://www.utdallas.edu/oit/howto/vpn/
+
+Password: 
+Last login: Wed Nov 11 22:33:54 2020 from utdvpn-10-50-121-46.utdallas.edu
+
+                       ***---***---***---***---***---***
+                    csgrads1.utdallas.edu - CentOS Linux 7.8
+                 --All CS Graduate Students should use csgrads1--
+                      cs1.utdallas.edu - CentOS Linux 7.8
+                      cs2.utdallas.edu - CentOS Linux 7.8
+                       ***---***---***---***---***---***
+
+This system is for use by CS students who need a general purpose Linux system 
+to complete homework assignments.  Computationally or resource intensive 
+simulations will be throttled automatically.
+
+Thank you,
+CS Lab Manager
+cs-labs@utdallas.edu
+
+               /scratch disk space can be used for temporary files.
+      All files within /scratch will be erased on a regular basis (Sunday 0300).
+
+[?1034h{cslinux1:~} gcc -strd[K[Kd=c99 netstat2.c -o netstat2
+[01m[Knetstat2.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Knetstat2.c:32:9:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kpopen[m[K’ [-Wimplicit-function-declaration]
+         fp = popen(s, "r");
+[01;32m[K         ^[m[K
+[01m[Knetstat2.c:32:12:[m[K [01;35m[Kwarning: [m[Kassignment makes pointer from integer without a cast [enabled by default]
+         fp = popen(s, "r");
+[01;32m[K            ^[m[K
+[01m[Knetstat2.c:43:9:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kpclose[m[K’ [-Wimplicit-function-declaration]
+         pclose(fp);
+[01;32m[K         ^[m[K
+{cslinux1:~} ./netstat2
+Enter a port range: 20-30
+Port #20 is free
+Port #21 is free
+Port #22 is not free
+Port #23 is free
+Port #24 is free
+Port #25 is free
+Port #26 is free
+Port #27 is free
+Port #28 is free
+Port #29 is free
+{cslinux1:~} ./netstat2
+Enter a port range: ./  30000= -30010
+Port #30000 is free
+Port #30001 is free
+Port #30002 is free
+Port #30003 is free
+Port #30004 is free
+Port #30005 is free
+Port #30006 is free
+Port #30007 is free
+Port #30008 is free
+Port #30009 is free
+{cslinux1:~} logout
+Connection to cs1.utdallas.edu closed.
+[1m[7m%[27m[1m[0m                                                                                ]7;file://Feiyans-MacBook-Air.local/Users/feiyan/desktop[0m[27m[24m[Jfeiyan@Feiyans-MacBook-Air desktop % [K[?2004heexit[?2004l
+
+Script done on Wed Nov 11 22:39:21 2020
