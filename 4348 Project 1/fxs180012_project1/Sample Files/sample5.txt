@@ -1,0 +1,317 @@
+23    // line one
+17
+23    // line two
+38
+23    // line three
+71
+23    // line four
+92
+23    // line five
+119
+23    // line six
+146
+23    // line seven
+179
+23    // line eight
+206
+50
+
+	// line one
+1    // load 5
+5
+27    // push 5 to stack
+23    // call spaces()
+274
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call forwardslash()
+246
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call backwardslash()
+260
+28    // remove parameter
+23    // call newline()
+241
+24    // return
+
+	// line two
+1    // load 4
+4
+27    // push 4 to stack
+23    // call underscore()
+227
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call forwardslash()
+246
+28    // remove parameter
+1    // load 2
+2
+27    // push 1 to stack
+23    // call spaces()
+274
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call backwardslash()
+260
+28    // remove parameter
+1     // load 4
+4
+27    // push 4 to stack
+23    // call underscore()
+227
+28    // remove parameter
+23    // call newline()
+241
+24    // return
+
+	// line three
+1    // load 1
+1
+27    // push 1 to stack
+23    // call backwardslash()
+260
+28    // remove parameter
+1    // load 10
+10
+27    // push 1 to stack
+23    // call spaces()
+274
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call forwardslash()
+246
+28    // remove parameter
+23    // call newline()
+241
+24    // return
+
+	// line four
+1    // load 1
+1
+27    // push 1 to stack
+23    // call spaces()
+274
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call backwardslash()
+260
+28    // remove parameter
+1    // load 8
+8
+27    // push 1 to stack
+23    // call spaces()
+274
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call forwardslash()
+246
+28    // remove parameter
+23    // call newline()
+241
+24    // return
+
+	// line five
+1    // load 1
+1
+27    // push 1 to stack
+23    // call space()
+274
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call forwardslash()
+246
+28    // remove parameter
+1    // load 8
+8
+27    // push 1 to stack
+23    // call spaces()
+274
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call backwardslash()
+260
+28    // remove parameter
+23    // call newline()
+241
+24    // return
+
+	// line six
+1    // load 1
+1
+27    // push 1 to stack
+23    // call forwardslash()
+246
+28    // remove parameter
+1    // load 3
+3
+27    // push 4 to stack
+23    // call underscore()
+227
+28    // remove parameter
+1    // load 4
+4
+27    // push 1 to stack
+23    // call spaces()
+274
+28    // remove parameter
+1    // load 3
+3
+27    // push 4 to stack
+23    // call underscore()
+227
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call backwardslash()
+260
+28    // remove parameter
+23    // call newline()
+241
+24    // return
+
+	// line seven
+1    // load 4
+4
+27    // push 4 to stack
+23    // call space()
+274
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call backwardslash()
+260
+28    // remove parameter
+1    // load 2
+2
+27    // push 1 to stack
+23    // call spaces()
+274
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call forwardslash()
+246
+28    // remove parameter
+23    // call newline()
+241
+24    // return
+
+	// line eight
+1    // load 5
+5
+27    // push 5 to stack
+23    // call space()
+274
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call backwardslash()
+260
+28    // remove parameter
+1    // load 1
+1
+27    // push 1 to stack
+23    // call forwardslash()
+246
+28    // remove parameter
+23    // call newline()
+241
+24    // return
+
+	// underscore()
+1    // load 1
+1
+14    // copy to X
+6    // get parameter
+14    // copy to X
+1    // load '_'
+95
+9    // print '_'
+2
+26    // X--;
+15    // copy from X
+22    // JNE 211
+232
+24
+
+	// newline()
+1    // load 10
+10
+9    // print '\n'
+2
+24    // return
+
+	// forwardslash()
+1    // load 1
+1
+14    // copy to X
+6    // get parameter
+14    // copy to X
+1    // load '/'
+47
+9    // print '/'
+2
+26    // X--;
+15    // copy from X
+22    // JNE 211
+251
+24
+
+	// backwardslash()
+1    // load 1
+1
+14    // copy to X
+6    // get parameter
+14    // copy to X
+1    // load '\'
+92
+9    // print '\'
+2
+26    // X--;
+15    // copy from X
+22    // JNE 211
+265
+24
+
+	// spaces()
+1    // load 1
+1
+14   // copy to X
+6    // get parameter Load from SP + X from stack
+14    // copy to X
+1   // load space
+32
+9    // print space
+2
+26    // X--
+15    // copy from X
+22    // JNE 211
+279
+24
+
+.1000
+30
